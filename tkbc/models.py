@@ -462,7 +462,7 @@ class TNTComplEx(TKBCModel):
             lhs[1] * full_rel[0] + lhs[0] * full_rel[1]
         ], 1)
 
-class TeLM(TKBCMModel):
+class TeLM(TKBCModel):
     """2nd-grade Temporal Knowledge Graph Embeddings using Geometric Algebra
 
         :::     Scoring function: <h, r, t_conjugate, T>
