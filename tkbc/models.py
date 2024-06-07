@@ -539,7 +539,7 @@ class TeLM(TKBCMModel):
 	
 	
 	
-    def pretrain(self, x):
+    def forward(self, x):
         
         lhs = self.embeddings[0](x[:, 0])
         rel = self.embeddings[1](x[:, 1])
@@ -568,8 +568,7 @@ class TeLM(TKBCMModel):
                ), self.embeddings[2].weight[:-1] if self.no_time_emb else torch.cat((self.embeddings[2].weight[:,:self.rank],self.embeddings[2].weight[:,
 	       self.rank*3:]),dim=1)
 
-
-    def forward(self, x):
+    def forward_over_time(self, x):
         lhs = self.embeddings[0](x[:, 0])
         rel = self.embeddings[1](x[:, 1])
         rhs = self.embeddings[0](x[:, 2])
