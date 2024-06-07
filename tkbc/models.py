@@ -510,7 +510,7 @@ class TeLM(TKBCModel):
         lhs = self.embeddings[0](x[:, 0])
         rel = self.embeddings[1](x[:, 1])
         rhs = self.embeddings[0](x[:, 2])
-        time = self.embeddings[2](x[:, 3] // self.time_granularity) 
+        time = self.embeddings[2](x[:, 3]) 
         lhs = lhs[:, :self.rank], lhs[:, self.rank:self.rank*2], lhs[:, self.rank*2:self.rank*3], lhs[:, self.rank*3:]
         rel = rel[:, :self.rank], rel[:, self.rank:self.rank*2], rel[:, self.rank*2:self.rank*3], rel[:, self.rank*3:]
         rhs = rhs[:, :self.rank], rhs[:, self.rank:self.rank*2], rhs[:, self.rank*2:self.rank*3], rhs[:, self.rank*3:]
@@ -544,7 +544,7 @@ class TeLM(TKBCModel):
         lhs = self.embeddings[0](x[:, 0])
         rel = self.embeddings[1](x[:, 1])
         rhs = self.embeddings[0](x[:, 2])
-        time = self.embeddings[2](x[:, 3] // self.time_granularity)
+        time = self.embeddings[2](x[:, 3] )
 
         lhs = lhs[:, :self.rank], lhs[:, self.rank*3:]
         rel = rel[:, :self.rank], rel[:, self.rank*3:]
@@ -572,7 +572,7 @@ class TeLM(TKBCModel):
         lhs = self.embeddings[0](x[:, 0])
         rel = self.embeddings[1](x[:, 1])
         rhs = self.embeddings[0](x[:, 2])
-        time = self.embeddings[2](x[:, 3] // self.time_granularity) 
+        time = self.embeddings[2](x[:, 3]) 
 
         lhs = lhs[:, :self.rank], lhs[:, self.rank:self.rank*2], lhs[:, self.rank*2:self.rank*3], lhs[:, self.rank*3:]
         rel = rel[:, :self.rank], rel[:, self.rank:self.rank*2], rel[:, self.rank*2:self.rank*3], rel[:, self.rank*3:]
@@ -623,7 +623,7 @@ class TeLM(TKBCModel):
     def get_queries(self, queries: torch.Tensor):
         lhs = self.embeddings[0](queries[:, 0])
         rel = self.embeddings[1](queries[:, 1])
-        time = self.embeddings[2](queries[:, 3] // self.time_granularity) 
+        time = self.embeddings[2](queries[:, 3]) 
         lhs = lhs[:, :self.rank], lhs[:, self.rank:self.rank*2], lhs[:, self.rank*2:self.rank*3], lhs[:, self.rank*3:]
         rel = rel[:, :self.rank], rel[:, self.rank:self.rank*2], rel[:, self.rank*2:self.rank*3], rel[:, self.rank*3:]
         time = time[:, :self.rank], time[:, self.rank:self.rank*2], time[:, self.rank*2:self.rank*3], time[:, self.rank*3:]
@@ -645,7 +645,7 @@ class TeLM(TKBCModel):
     def get_lhs_queries(self, queries: torch.Tensor):
         rhs = self.embeddings[0](queries[:, 2])
         rel = self.embeddings[1](queries[:, 1])
-        time = self.embeddings[2](queries[:, 3] // self.time_granularity)
+        time = self.embeddings[2](queries[:, 3])
 	
         rel = rel[:, :self.rank], rel[:, self.rank:self.rank*2], rel[:, self.rank*2:self.rank*3], rel[:, self.rank*3:]
         rhs = rhs[:, :self.rank], rhs[:, self.rank:self.rank*2], rhs[:, self.rank*2:self.rank*3], rhs[:, self.rank*3:]
