@@ -36,8 +36,8 @@ class QA_Dataset(Dataset):
 
         # self.tokenizer_class = BertTokenizer 
         # self.tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
-        self.tokenizer_class = BertTokenizer 
-        self.tokenizer = BertTokenizer.from_pretrained('bert-base-multilingual-cased')
+        self.tokenizer_class = DistilBertTokenizer
+        self.tokenizer = DistilBertTokenizer.from_pretrained('distilbert-base-uncased')
         # self.tokenizer_class = RobertaTokenizer 
         # self.tokenizer = RobertaTokenizer.from_pretrained('roberta-base')
         self.all_dicts = utils.getAllDicts(dataset_name)
