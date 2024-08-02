@@ -29,8 +29,8 @@ class QA_model(nn.Module):
         super().__init__()
         self.tkbc_embedding_dim = tkbc_model.embeddings[0].weight.shape[1]
         self.sentence_embedding_dim = 768 # hardwired from roberta?
-        self.pretrained_weights = 'distilbert-base-uncased'
-        self.roberta_model = DistilBertModel.from_pretrained(self.pretrained_weights)
+        self.pretrained_weights = 'bert-base-multilingual-cased'
+        self.roberta_model = BertModel.from_pretrained(self.pretrained_weights)
         # self.pretrained_weights = 'roberta-base'
         # self.roberta_model = BertModel.from_pretrained(self.pretrained_weights)
         if args.lm_frozen == 1:
